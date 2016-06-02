@@ -1,0 +1,11 @@
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+.env
+.idea/
+.idea
+.tags
+.tags_sorted_by_file
+composer.lock
+
