@@ -8,14 +8,39 @@ namespace Tomato\Foundation;
  */
 class Container implements IContainer
 {
+    private $beans = [];
+
+    //保存单例实例
+    private static $_instance;
+
+
+    //防止外部new,维持单例,运行周期内只需要一个容器
+    private function __construct()
+    {
+
+    }
+
+    public static function singleton ()
+    {
+        if (!isset(self::$_instance)) {
+            $c = __CLASS__;
+            self::$_instance = new $c;
+        }
+        return self::$_instance;
+
+    }
+
 
     function get($key)
     {
-        // TODO: Implement get() method.
+        return $this->beans[$key];
     }
 
-    function set($key, &$value)
+    function set($key, callable $callback)
     {
-        // TODO: Implement set() method.
+        $ret = call_user_func($callback);
+        $this->beans[$key] = $ret;
     }
+
+
 }

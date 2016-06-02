@@ -13,6 +13,6 @@ interface IContainer
 {
     function get($key);
 
-    function set($key, &$value);
+    function set($key, callable $callback);
 
 }
