@@ -14,6 +14,11 @@ use ArrayAccess;
 class Request implements ArrayAccess
 {
 
+    public function __construct(\Exception $e)
+    {
+
+    }
+
     /**
      * Author     : luyh@59store.com
      * Description: [获取uri]

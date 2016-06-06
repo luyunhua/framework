@@ -7,12 +7,12 @@
  */
 
 namespace Tomato\Foundation;
-
+use \Closure;
 
 interface IContainer
 {
-    function get($key);
+    function get($key, $param, $config);
 
-    function set($key, callable $callback);
+    function set($key, $param, $config);
 
 }
